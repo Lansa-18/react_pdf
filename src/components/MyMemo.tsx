@@ -5,8 +5,9 @@ import {
   View,
   StyleSheet,
   Image,
+  Link,
 } from "@react-pdf/renderer";
-import nnpcLogo from "/new-nnpc-logo.png"; 
+import nnpcLogo from "/new-nnpc-logo.png";
 
 const styles = StyleSheet.create({
   page: {
@@ -35,8 +36,9 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   section: {
-    marginTop: 10,
+    marginTop: 7,
     marginBottom: 5,
+    lineHeight: 0.9,
   },
   bold: {
     fontWeight: "bold",
@@ -53,7 +55,7 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 5,
     fontWeight: "bold",
-    borderRight: '1px solid black'
+    borderRight: "1px solid black",
   },
   tableCell: {
     flex: 2,
@@ -76,7 +78,6 @@ const styles = StyleSheet.create({
 const MyMemo = () => (
   <Document>
     <Page size="A4" style={styles.page}>
-        
       {/* Header */}
       <View style={styles.header}>
         <Text style={styles.bold}>INTERNAL MEMO</Text>
@@ -177,10 +178,11 @@ const MyMemo = () => (
         Talent Management. You can do so by scanning the QR code below.
       </Text>
 
-      <Text>
+      <Text style={styles.section}>
         Should you have any questions or require further clarification, please
-        reach out to <Text style={styles.bold}>Morgan U. Okoli</Text> on +2348027872288; or email:
-        morgan.okoli@nnpcgroup.com
+        reach out to <Text style={styles.bold}>Morgan U. Okoli</Text> on
+        <Text style={styles.bold}> +2348027872288;</Text> or email:{" "}
+        <Link>morgan.okoli@nnpcgroup.com</Link>
       </Text>
 
       <Text>We wish you a pleasant learning experience.</Text>
