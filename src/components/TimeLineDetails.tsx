@@ -1,11 +1,12 @@
 import { View, Text } from "@react-pdf/renderer";
 import { styles } from "../styles/interCompanyStyles";
 import CheckmarkIcon from "./CheckmarkIcon";
+import EndorsementHeader from "./EndorsementHeader";
 
 interface HistoryItemProps {
   name: string;
   role: string;
-  status: string;
+  status?: string;
   timestamp: string;
 }
 
@@ -28,7 +29,7 @@ const HistoryItem = ({ name, role, status, timestamp }: HistoryItemProps) => (
       <Text style={styles.roleText}>
         {role} - <Text style={styles.nameText}>{name}</Text>{" "}
       </Text>
-      <Text style={styles.dateRange}>{status}</Text>
+      {status && <Text style={styles.dateRange}>{status}</Text>}
     </View>
     <View style={styles.historyRight}>
       <Text style={styles.historyTime}>{timestamp}</Text>
@@ -63,15 +64,12 @@ const TimeLineDetails = ({
 }: TimeLineDetailsProps) => (
   <View style={styles.endorsementSection}>
     {/* Endorsement Header */}
-    <View style={styles.endorsementHeader}>
-      <Text style={styles.sectionTitle}>{title}</Text>
-      <Text style={styles.dateRange}>{role}</Text>
-    </View>
+    <EndorsementHeader title={title} role={role} />
 
     {/* Approval Status */}
     <View style={styles.approvalStatus}>
       <Text style={styles.sectionTitle}>Approval Status</Text>
-      <View style={{flexDirection: 'column', gap: 4}}>
+      <View style={{ flexDirection: "column", gap: 4 }}>
         {approvers.map((item, index) => (
           <ApproversList key={index} {...item} />
         ))}

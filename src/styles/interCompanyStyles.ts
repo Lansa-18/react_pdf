@@ -129,4 +129,10 @@ export const styles = StyleSheet.create({
     fontStyle: "normal",
     fontWeight: 500,
   },
+  waitingText: {
+    fontSize: 12,
+    color: "#999",
+    fontStyle: "normal",
+    fontWeight: 500,
+  },
 });

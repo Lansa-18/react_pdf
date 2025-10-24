@@ -3,6 +3,7 @@ import { styles } from "../styles/interCompanyStyles";
 import nnpcLogo from "/new-nnpc-logo.png";
 import SideStyle from "./SideStyle";
 import TimeLineDetails from "./TimeLineDetails";
+import UploadDetails from "./UploadDetails";
 
 // Registering the font.
 Font.register({
@@ -32,7 +33,7 @@ const InterCompanyLoan = () => (
       <View style={styles.horizontalLine}></View>
 
       <View style={{ flexDirection: "column", gap: 16 }}>
-        <View style={{ flexDirection: "row", gap: 10 }}>
+        <View style={{ flexDirection: "row", gap: 10 }} wrap={false}>
           <SideStyle />
           <TimeLineDetails
             title="Endorsement by MD of BU"
@@ -61,7 +62,7 @@ const InterCompanyLoan = () => (
           />
         </View>
 
-        <View style={{ flexDirection: "row", gap: 10 }}>
+        <View style={{ flexDirection: "row", gap: 10 }} wrap={false}>
           <SideStyle />
           <TimeLineDetails
             title="Review by CAD team"
@@ -90,7 +91,7 @@ const InterCompanyLoan = () => (
           />
         </View>
 
-        <View style={{ flexDirection: "row", gap: 10 }}>
+        <View style={{ flexDirection: "row", gap: 10 }} wrap={false}>
           <SideStyle />
           <TimeLineDetails
             title="Review by CF team"
@@ -119,22 +120,60 @@ const InterCompanyLoan = () => (
             ]}
             history={[
               {
-                name: "Daniel Olusegun",
-                role: "CAD Representative",
-                status: "Update legal requirement",
-                timestamp: "10:09am | 16th Oct, 2025",
+                name: "Tete Owoicho",
+                role: "Financial Controller",
+                timestamp: "8:45am | 17th Oct, 2025",
+              },
+              {
+                name: "Tete Owoicho",
+                role: "General Counsel",
+                status: "Approved",
+                timestamp: "9:12am | 17th Oct, 2025",
               },
               {
                 name: "Daniel Olusegun",
-                role: "CAD Representative",
+                role: "Chief Strategy and Sustainability Officer",
                 status: "Looks good",
-                timestamp: "10:18am | 16th Oct, 2025",
+                timestamp: "3:39pm | 17th Oct, 2025",
+              },
+              {
+                name: "Tete Owoicho",
+                role: "Chief Tax Management Officer",
+                status: "Proceed",
+                timestamp: "9:03am | 18th Oct, 2025",
               },
             ]}
           />
         </View>
 
+        <View style={{ flexDirection: "row", gap: 10 }} wrap={false}>
+          <SideStyle />
+          <TimeLineDetails
+            title="Approval by GCEO"
+            role="Group Chief Executive Officer"
+            approvers={[
+              {
+                name: "Daniel Olusegun",
+                role: "Group Chief Executive Officer",
+                secondRole: false,
+              },
+            ]}
+            history={[
+              {
+                name: "Daniel Olusegun",
+                role: "Group Chief Executive Officer",
+                status: "Proceed",
+                timestamp: "10:02am | 18th Oct, 2025",
+              },
+            ]}
+          />
+        </View>
 
+        <View style={{ flexDirection: "row", gap: 10 }} wrap={false}>
+          <SideStyle />
+
+          <UploadDetails />
+        </View>
       </View>
     </Page>
   </Document>
