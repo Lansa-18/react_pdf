@@ -37,10 +37,13 @@ const InterCompanyLoan = () => (
           <TimeLineDetails
             title="Endorsement by MD of BU"
             role="Managing Director"
-            currentApprover={{
-              name: "Daniel Olusegun",
-              role: "Managing Director",
-            }}
+            approvers={[
+              {
+                name: "Daniel Olusegun",
+                role: "Managing Director",
+                secondRole: true,
+              },
+            ]}
             history={[
               {
                 name: "Daniel Olusegun",
@@ -61,28 +64,77 @@ const InterCompanyLoan = () => (
         <View style={{ flexDirection: "row", gap: 10 }}>
           <SideStyle />
           <TimeLineDetails
-            title="Endorsement by MD of BU"
-            role="Managing Director"
-            currentApprover={{
-              name: "Daniel Olusegun",
-              role: "Managing Director",
-            }}
+            title="Review by CAD team"
+            role="CAD Representative"
+            approvers={[
+              {
+                name: "Daniel Olusegun",
+                role: "CAD Representative",
+                secondRole: true,
+              },
+            ]}
             history={[
               {
                 name: "Daniel Olusegun",
-                role: "Managing Director",
-                status: "Proceed",
-                timestamp: "1:07pm | 15th Oct, 2025",
+                role: "CAD Representative",
+                status: "Update legal requirement",
+                timestamp: "10:09am | 16th Oct, 2025",
               },
               {
                 name: "Daniel Olusegun",
-                role: "Managing Director",
-                status: "Proceed",
-                timestamp: "2:14pm | 15th Oct, 2025",
+                role: "CAD Representative",
+                status: "Looks good",
+                timestamp: "10:18am | 16th Oct, 2025",
               },
             ]}
           />
         </View>
+
+        <View style={{ flexDirection: "row", gap: 10 }}>
+          <SideStyle />
+          <TimeLineDetails
+            title="Review by CF team"
+            role="Financial Controller, Chief Strategy and Sustainability Officer, Chief Tax Management Officer, General Counsel"
+            approvers={[
+              {
+                name: "Daniel Olusegun",
+                role: "Chief Strategy and Sustainability Officer",
+                secondRole: false,
+              },
+              {
+                name: "Daniel Olusegun",
+                role: "Chief Tax Management Officer",
+                secondRole: false,
+              },
+              {
+                name: "Daniel Olusegun",
+                role: "Financial Controller",
+                secondRole: false,
+              },
+              {
+                name: "Daniel Olusegun",
+                role: "General Counsel",
+                secondRole: false,
+              },
+            ]}
+            history={[
+              {
+                name: "Daniel Olusegun",
+                role: "CAD Representative",
+                status: "Update legal requirement",
+                timestamp: "10:09am | 16th Oct, 2025",
+              },
+              {
+                name: "Daniel Olusegun",
+                role: "CAD Representative",
+                status: "Looks good",
+                timestamp: "10:18am | 16th Oct, 2025",
+              },
+            ]}
+          />
+        </View>
+
+
       </View>
     </Page>
   </Document>

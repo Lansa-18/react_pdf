@@ -9,13 +9,16 @@ interface HistoryItemProps {
   timestamp: string;
 }
 
+interface ApproversListProps {
+  name: string;
+  role: string;
+  secondRole: boolean;
+}
+
 interface TimeLineDetailsProps {
   title: string;
   role: string;
-  currentApprover: {
-    name: string;
-    role: string;
-  };
+  approvers: ApproversListProps[];
   history: HistoryItemProps[];
 }
 
@@ -33,10 +36,29 @@ const HistoryItem = ({ name, role, status, timestamp }: HistoryItemProps) => (
   </View>
 );
 
+const ApproversList = ({ role, name, secondRole }: ApproversListProps) => (
+  <View style={styles.statusItem}>
+    <CheckmarkIcon style={styles.statusDot} />
+
+    <View
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: 4,
+      }}
+    >
+      <Text style={styles.roleText}>
+        {role} - <Text style={styles.nameText}>{name}</Text>{" "}
+      </Text>
+      {secondRole && <Text style={styles.dateRange}>{role}</Text>}
+    </View>
+  </View>
+);
+
 const TimeLineDetails = ({
   title,
   role,
-  currentApprover,
+  approvers,
   history,
 }: TimeLineDetailsProps) => (
   <View style={styles.endorsementSection}>
@@ -49,15 +71,10 @@ const TimeLineDetails = ({
     {/* Approval Status */}
     <View style={styles.approvalStatus}>
       <Text style={styles.sectionTitle}>Approval Status</Text>
-      <View style={styles.statusItem}>
-        <CheckmarkIcon style={styles.statusDot} />
-        <View style={{ flexDirection: "column", gap: 4 }}>
-          <Text style={styles.roleText}>
-            {currentApprover.role} -{" "}
-            <Text style={styles.nameText}>{currentApprover.name}</Text>{" "}
-          </Text>
-          <Text style={styles.dateRange}>{currentApprover.role}</Text>
-        </View>
+      <View style={{flexDirection: 'column', gap: 4}}>
+        {approvers.map((item, index) => (
+          <ApproversList key={index} {...item} />
+        ))}
       </View>
 
       {/* Approval History */}
